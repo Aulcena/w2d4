@@ -115,8 +115,13 @@ end
 #     1-dimensional array: ['some data']
 #     2-dimensional array: [['some data']]
 #     3-dimensional array: [[['some data']]]
-def flatten(data)
-    return [data] if data.kind_of?(String)
 
-      flatten(data.flatten)  << []
+def flatten(data)
+    return [data] if !data.kind_of?(Array)
+    new_arr = []
+      data.each do |ele|
+        new_arr << flatten(ele)
+      end
+    end
+    new_arr
 end
