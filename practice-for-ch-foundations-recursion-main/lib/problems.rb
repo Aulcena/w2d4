@@ -119,9 +119,8 @@ end
 def flatten(data)
     return [data] if !data.kind_of?(Array)
     new_arr = []
-      data.each do |ele|
-        new_arr << flatten(ele)
-      end
+    data.each do |ele|
+      new_arr += flatten(ele)
     end
     new_arr
 end
