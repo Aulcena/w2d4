@@ -11,8 +11,18 @@
 # if word has all vowels | "aeiou".include?(word)
 
 def all_vowel_pairs(words)
-  words.each_with_index do |ele|
+  vowels = ["a", "e", "i", "o", "u"]
+  pairs = ""
+  paired = []
+  words.each_with_index do |word_1, idx_1|
+    words.each_with_index do |word_2, idx_2|
+      pairs = word_1 + " " + word_2          # 2 word sepearated by a space
+      if idx_2 > idx_1 && vowels.all? { |ele| pairs.include?(ele) }
+        paired << pairs
+      end
+    end
   end
+  paired
 end
 
 
@@ -23,7 +33,13 @@ end
 #
 # composite?(9)     # => true composite?(13)    # => false
 def composite?(num)
-  
+  return false if num < 1
+  (2...num).each do | i |
+    if num % i == 0
+      return true
+    end
+  end
+  false
 end
 
 
@@ -38,6 +54,12 @@ end
 # find_bigrams("the theater is empty", ["cy", "em", "ty", "ea", "oo"])  # => ["em", "ty", "ea"]
 # find_bigrams("to the moon and back", ["ck", "oo", "ha", "at"])        # => ["ck", "oo"]
 def find_bigrams(str, bigrams)
+  bigram = []
+  pairs = []
+  new_str = str.split("")
+  i = 0
+  while i < 
+  
   
 end
 
