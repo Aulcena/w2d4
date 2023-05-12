@@ -58,7 +58,7 @@ def find_bigrams(str, bigrams)
   pairs = []
   new_str = str.split("")
   i = 0
-  while i < 
+  while i < new_str.length
   
   
 end
